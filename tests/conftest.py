@@ -230,6 +230,7 @@ def prepare_httpbin_url(value: str) -> typing.Callable:
     def inner(*suffix: str) -> str:
         return urljoin(httpbin_url, "/".join(suffix))
 
+    inner.url = value.url
     return inner
 
 
